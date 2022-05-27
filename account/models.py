@@ -52,6 +52,7 @@ class Department(MPTTModel):
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     individuals = models.ManyToManyField(Individual,  null=True, blank=True, db_index=True, related_name='departments', verbose_name='Физические лица')
     date_add_individual = models.DateField(null=True, blank=True, verbose_name='Дата добавление клиента')
+    # a = models.MAn
 
     # в методе save, указываю максимальный уровень вложенности
     def save(self, *args, **kwargs):
